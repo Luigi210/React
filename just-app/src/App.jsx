@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
@@ -9,11 +8,14 @@ function App() {
   );
 }
 
-function Ustudy({name, year}){
-  return (<p>Hey, {name}<br/>
-            <a href="www.youtube.com">Мне {year} лет</a>
-          </p>);
+function Ustudy({ name, year }) {
+  return (
+    <p>
+      Hey, {name}
+      <br />
+      <a href="www.youtube.com">Мне {year} лет</a>
+    </p>
+  );
 }
-
 
 export default App;
