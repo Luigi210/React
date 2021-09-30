@@ -1,0 +1,13 @@
+.personal-info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.personal-info p {
+    text-align: center;
+}
+
+.personal-info li {
+    text-align: center;
+}

@@ -17,5 +17,4 @@ function Ustudy({ name, year }) {
     </p>
   );
 }
-
 export default App;
