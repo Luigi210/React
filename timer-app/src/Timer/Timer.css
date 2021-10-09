@@ -1,0 +1,13 @@
+.timer {
+    border: 1px solid #ccc;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+}
+
+button {
+    max-width: 100px;
+    margin: auto;
+}
