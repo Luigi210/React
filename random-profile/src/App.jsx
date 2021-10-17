@@ -13,6 +13,13 @@ function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function rec(x, n) {
+  if (x === n) {
+    return rec(x, randomIntFromInterval(0, 4));
+  }
+  return n;
+}
+
 function App() {
   const [random, setRandom] = useState(randomIntFromInterval(0, 4));
   const object = [
@@ -66,9 +73,7 @@ function App() {
         />
         <button
           onClick={() => {
-            if (random !== randomIntFromInterval(0, 4)) {
-              setRandom(randomIntFromInterval(0, 4));
-            }
+            setRandom(rec(random, randomIntFromInterval(0, 4)));
           }}
           className="random-profile"
         >
