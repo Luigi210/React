@@ -1,12 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./TaskList.css"
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function TaskList({ todo, removeTodo }) {
   return (
-    <>
+    <div className="mainList">
       <div className="task-list-checked">
         <label>
           <input
+            className="check"
             type="checkbox"
             value="todo"
             onChange={() => {
@@ -23,9 +27,9 @@ export default function TaskList({ todo, removeTodo }) {
           return removeTodo(todo.id);
         }}
       >
-        Delete
+        <FontAwesomeIcon icon={faTrash} />
       </button>
-    </>
+    </div>
   );
 }
 

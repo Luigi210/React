@@ -3,6 +3,9 @@ import react from "react";
 import React from "react";
 import { useState, useEffect } from "react";
 import TaskList from "./TaskList/TaskList";
+import "./Task.css"
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Task() {
   const [showForm, setShowForm] = useState(false);
@@ -15,11 +18,12 @@ export default function Task() {
     setArrayTodo(todos);
   };
   return (
-    <>
+    <div className="main">
       <h2 className="task-manager-title">Task Manager</h2>
       <input
         className="todo-text"
         type="text"
+        placeholder="Add your task"
         onChange={(event) => {
           setTodoText(event.target.value);
         }}
@@ -48,7 +52,7 @@ export default function Task() {
           setTodoText("");
         }}
       >
-        Add
+        <FontAwesomeIcon icon={faPlus} />
       </button>
       {arrayTodo.map((todo) => {
         return (
@@ -60,6 +64,6 @@ export default function Task() {
           />
         );
       })}
-    </>
+    </div>
   );
 }

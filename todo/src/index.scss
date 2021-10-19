@@ -1,0 +1,83 @@
+$ruler: 16px;
+$color-red: #AE1100;
+$color-bg: #EBECF0;
+$color-shadow: #BABECC;
+$color-white: #FFF;
+
+*{
+  font-family: 'Montserrat', sans-serif;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #EBECF0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+button{
+  text-shadow: 1px 1px 0 #fff;
+  height: 50px;
+  /*padding: 5px 25px 5px 25px;*/
+  outline: 0;
+  font-size: 16px;
+  border-radius: 320px;
+  padding: 16px;
+  background-color: #EBECF0;;
+  box-shadow:  inset 2px 2px 5px #BABECC, inset -5px -5px 10px #fff;
+  width: 120px;
+}
+
+button {
+  color:#61677C;
+  font-weight: bold;
+  box-shadow: -5px -5px 20px $color-white,  5px 5px 20px $color-shadow;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+
+  &:hover {
+      box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
+  }
+
+  &:active {
+      box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
+  }
+
+  .icon {
+      margin-right: $ruler/2;
+  }
+
+  &.unit {
+      border-radius: $ruler/2;
+      line-height: 0;
+      width: $ruler*3;
+      height: $ruler*3;
+      display:inline-flex;
+      justify-content: center;
+      align-items:center;
+      margin: 0 $ruler/2;
+      font-size: $ruler*1.2;
+
+      .icon {
+          margin-right: 0; 
+      }
+  }
+
+  &.red {
+      display: block;
+      width: 100%;
+      color:$color-red;
+  }
+}

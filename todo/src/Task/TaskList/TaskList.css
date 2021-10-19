@@ -1,0 +1,4 @@
+.mainList{
+    display: flex;
+    flex-direction: column;
+}

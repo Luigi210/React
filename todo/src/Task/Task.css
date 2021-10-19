@@ -1,0 +1,44 @@
+.main{ 
+    text-align: center;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    max-width: 400px;
+}
+
+.date-check, .todo-text{
+    border-radius: 320px;
+    border: none;
+    margin: 50px;
+}
+
+button{
+    border: none;
+    cursor: pointer;
+    
+}
+
+.date-check, .todo-text{ 
+    text-shadow: 1px 1px 0 #fff;
+    height: 50px;
+    /*padding: 5px 25px 5px 25px;*/
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 16px*20;
+    padding: 16px;
+
+}
+
+.date-check, .todo-text{
+    margin-right: 16px/2;
+    box-shadow:  inset 2px 2px 5px #BABECC, inset -5px -5px 10px #fff;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+h2{
+    color: #BABECC;
+}
