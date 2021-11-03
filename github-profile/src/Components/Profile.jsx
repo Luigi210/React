@@ -10,7 +10,23 @@ function Profile(){
     const [repos, setRepos] = useState([]);
 
     useEffect(() => {
-        console.log(profile.map(profileItem => profileItem.login.toLowerCase()));
+        try {
+            const arrProfiles = localStorage.getItem("profiles");
+            const parsedArray = JSON.parse(arrProfiles);
+            console.log(parsedArray);
+            setProfile(parsedArray);
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem("profiles", JSON.stringify(profile));
+        console.log(profile);
+        return () => {
+            console.log("123");
+        }
     }, [profile])
 
     async function getProfile(){
@@ -20,7 +36,6 @@ function Profile(){
 
         const apiUrl = `https://api.github.com/users/${user}`;
         const res = await axios.get(apiUrl);
-        let check = false;
 
         setProfile([...profile, res.data]);
         setUser('');
@@ -31,7 +46,9 @@ function Profile(){
                 <input value={user} type={'text'} onChange={event => {
                     setUser(event.target.value)
                 }}/>
-                <button onClick={getProfile}>Add</button>
+                <button onClick={() => {
+                    getProfile()
+                }}>Add</button>
             </div>
             <div className="d-flex flex-wrap">
                 {profile.map((item, index) => {

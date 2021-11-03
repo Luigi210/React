@@ -1,13 +1,18 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom'
+import './NavBar.sass';
 
 export default function NavBar(){
     return(
         <nav className="navbar navbar-dark bg-primary navbar-expand-lg">
-            <div className="navbar-brand">
-                GitHub Search
-            </div>
             <ul className="navbar-nav">
+                <li className="nav-item">
+                    <div className="navbar-brand">
+                        <NavLink to="/" className="nav-link">
+                            GitHub Search
+                        </NavLink>
+                    </div>
+                </li>
                 <li className="nav-item">
                     <NavLink to="/main" className="nav-link">
                         Main
