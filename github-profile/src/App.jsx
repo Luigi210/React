@@ -15,8 +15,8 @@ function App() {
                   <Route exact path='/'>
                       <div className={"github-profile-block"}>
                           <h1>Welcome to the GitHub Profile Search </h1>
-                          <div>
-                              <p>If you want to go to main search. Click button below</p>
+                          <div className={"github-profile-desc"}>
+                              <p>If you want to go to main search. Click button below</p><br></br>
                               <button>
                                   <Link to={'/main'}>Go Main</Link>
                               </button>

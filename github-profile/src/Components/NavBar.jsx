@@ -4,7 +4,7 @@ import './NavBar.sass';
 
 export default function NavBar(){
     return(
-        <nav className="navbar navbar-dark bg-primary navbar-expand-lg">
+        <nav className="navbar navbar-dark bg-primary navbar-expand-lg" style={{position: 'sticky', top: 0}}>
             <ul className="navbar-nav">
                 <li className="nav-item">
                     <div className="navbar-brand">

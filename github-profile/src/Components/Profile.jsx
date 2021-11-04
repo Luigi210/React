@@ -3,6 +3,8 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import './Profile.sass';
 import PersonalInfo from "../Pages/PersonalInfo";
+// import {Icon} from "@material-ui/core";
+import {Icon} from "semantic-ui-react";
 
 function Profile(){
     const [user, setUser] = useState('')
@@ -43,24 +45,30 @@ function Profile(){
     return (
         <div>
             <div>
-                <input value={user} type={'text'} onChange={event => {
-                    setUser(event.target.value)
-                }}/>
-                <button onClick={() => {
-                    getProfile()
-                }}>Add</button>
+                <input
+                    className={"search-profile"}
+                    value={user}
+                    type={'text'}
+                    onChange={event => {setUser(event.target.value)}}
+                    placeholder="Enter the name of user"
+                    />
+                <button className={"add-button"} onClick={getProfile}>Add</button>
             </div>
             <div className="d-flex flex-wrap">
                 {profile.map((item, index) => {
                     return (
                         <React.Fragment key={index}>
                             <div className="profile-block">
-                                <h3>{item.name}</h3>
-                                <img src={item.avatar_url} className="img-thumbnail w-50"/>
+                                <div className={"profile-title"}>
+                                    <h3 className={"profile-name"}>{item.name}</h3>
+                                    {/*<Icon name={"download"}/>*/}
+                                    {/*<Icon name={"trash alternate outline"} link size={"huge"}/>*/}
+                                </div>
+                                <img src={item.avatar_url} className="img-thumbnail"/>
                                 <Link to={{
                                     pathname: '/info/' + item.name,
                                     state: {item}
-                                }}  className="btn btn-primary w-50" >Open Profile</Link>
+                                }}  className="btn btn-primary w-100" >Open Profile</Link>
                             </div>
                         </React.Fragment>
                     )
