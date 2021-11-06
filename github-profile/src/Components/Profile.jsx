@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "./Profile.sass";
+import "../Styles/Profile.sass";
 import PersonalInfo from "../Pages/PersonalInfo";
 // import {Icon} from "@material-ui/core";
 import { Icon } from "semantic-ui-react";

@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
-import "./PersonalInfo.sass";
+import "../Styles/PersonalInfo.sass";
 import dateFormat from "dateformat";
 
 export default function PersonalInfo() {
