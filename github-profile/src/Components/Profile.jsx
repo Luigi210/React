@@ -48,8 +48,6 @@ function Profile() {
 
   function deleteProfile(index) {
     setProfile(profile.filter((element, ind) => ind !== index));
-    // console.log(profile);
-    // setProfile(profile);
   }
 
   return (

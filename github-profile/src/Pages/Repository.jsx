@@ -61,7 +61,6 @@ export default function Repository() {
                   ref={(element) => reference.current.push(element)}
                 >
                   <p>ID: {it.id}</p>
-                  <br></br>
                   <a href={it.url}>Link</a>
                 </div>
               </>
