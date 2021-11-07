@@ -36,7 +36,7 @@ export default function PersonalInfo() {
           <p>
             <strong>Organization:</strong>{" "}
             <a href={item.organizations_url} target={"_blank"}>
-              {item.organizations_url}
+              Organization Url
             </a>
           </p>
           <p>
@@ -47,18 +47,20 @@ export default function PersonalInfo() {
           </p>
           {item.blog !== "" && (
             <p>
-              <strong>WebSite/Blog:</strong> <a href={item.blog}>{item.blog}</a>
+              <strong>WebSite/Blog:</strong> <a href={item.blog}>Link to blog</a>
             </p>
           )}
         </div>
-        <Link
-          to={{
-            pathname: "/repo/" + item.name,
-            state: { item },
-          }}
-        >
-          Go to Repositories
-        </Link>
+        <div className={"repo-link"}>
+          <Link
+            to={{
+              pathname: "/repo/" + item.name,
+              state: { item },
+            }}
+          >
+            Go to Repositories
+          </Link>
+        </div>
       </div>
       <div className={"profile-image"}>
         <img src={`${item.avatar_url}`} className={"rounded"} />

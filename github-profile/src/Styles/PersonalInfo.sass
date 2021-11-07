@@ -2,15 +2,31 @@
 
 .profile
   display: flex
+  +md
+    flex-direction: column-reverse
   &-info
     max-width: 50%
     width: 100%
+    +md
+      max-width: 100%
+    .repo-link
+      display: flex
+      justify-content: center
+      padding: 20px 0
   &-image
     max-width: 50%
     width: 100%
     display: flex
     justify-content: center
-    align-items: flex-end
+    align-items: center
+    img
+      +lg
+        max-width: 100%
+    +md
+      max-width: 100%
+    +sm
+      max-width: 100%
+      align-items: flex-end
 
   &-description
     border: 1px solid #d2c1c1

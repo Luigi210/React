@@ -52,9 +52,9 @@ function Profile() {
 
   return (
     <div>
-      <div>
+      <div className={"d-flex justify-content-center"}>
         <input
-          className={"search-profile"}
+          className={"search-profile form-control"}
           value={user}
           type={"text"}
           onChange={(event) => {
@@ -62,19 +62,17 @@ function Profile() {
           }}
           placeholder="Enter the name of user"
         />
-        <button className={"add-button"} onClick={getProfile}>
+        <button className={"btn btn-outline-success"} onClick={getProfile}>
           Add
         </button>
       </div>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex flex-wrap justify-content-center">
         {profile.map((item, index) => {
           return (
             <React.Fragment key={index}>
               <div className="profile-block">
                 <div className={"profile-title"}>
-                  <h3 className={"profile-name"}>{item.name}</h3>
-                  {/*<Icon name={"download"}/>*/}
-                  {/*<Icon name={"trash alternate outline"} link size={"huge"}/>*/}
+                  { item.name !== null ? <h3 className={"profile-name"}>{item.name}</h3> : <h3 className={"profile-name"}>{item.login}</h3>}
                 </div>
                 <img src={item.avatar_url} className="img-thumbnail" />
                 <Link

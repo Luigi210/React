@@ -37,8 +37,8 @@ export default function Repository() {
 
   return (
     <>
-      <h2>Ustudy</h2>
-      <p>{item.name}</p>
+      <h2>Repositories</h2>
+      <p className={"mb-0"}>Profile name: {item.name}</p>
       <a href={item.html_url}>Link</a>
       {loading && <ReactLoading type={"bars"} color={"black"} width={200} height={200}/>}
       {loading === false &&
