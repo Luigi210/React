@@ -61,6 +61,8 @@ function Profile() {
             setUser(event.target.value);
           }}
           placeholder="Enter the name of user"
+          onKeyDown={(event) => (event.key === "Enter" ? getProfile() : null)
+          }
         />
         <button className={"btn btn-outline-success"} onClick={getProfile}>
           Add

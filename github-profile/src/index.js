@@ -3,6 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import $ from 'jquery';
+
+$(document).ready(function () {
+
+    $('.first-button').on('click', function () {
+
+        $('.animated-icon1').toggleClass('open');
+    });
+    $('.second-button').on('click', function () {
+
+        $('.animated-icon2').toggleClass('open');
+    });
+    $('.third-button').on('click', function () {
+
+        $('.animated-icon3').toggleClass('open');
+    });
+});
 
 ReactDOM.render(
   <React.StrictMode>

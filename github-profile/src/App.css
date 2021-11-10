@@ -11,3 +11,7 @@
   flex-direction: column;
   /*align-items: center;*/
 }
+
+body{
+  background-color: rgba(210, 184, 184, 0.3);
+}

@@ -4,6 +4,10 @@ import { useLocation } from "react-router-dom";
 import ReactLoading from "react-loading";
 import "../Styles/Repository.sass";
 
+// const backgroundColor = {
+//
+// }
+
 export default function Repository() {
   const location = useLocation();
   const { item } = location.state;

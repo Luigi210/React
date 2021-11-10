@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useLocation, Link } from "react-router-dom";
 import "../Styles/PersonalInfo.sass";
 import dateFormat from "dateformat";
@@ -8,6 +8,16 @@ export default function PersonalInfo() {
   const { item } = location.state;
   const date = new Date(item.created_at);
   const member_since = dateFormat(date, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+
+  useEffect(() => {
+    const getItem = localStorage.getItem('savedProfile');
+    const parsed = JSON.parse(getItem);
+  }, []);
+
+  useEffect(() => {
+    const setItem = localStorage.setItem('savedProfile', JSON.stringify(item));
+  }, [item]);
+
   return (
     <div className={"profile"}>
       <div className={"profile-info"}>

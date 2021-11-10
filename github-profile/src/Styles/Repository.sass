@@ -6,9 +6,21 @@
 .hidden-info
   display: none
 .open-info
-  display: block
-  +sm
-    background-color: aqua
+  //display: block
+  //transition: all 1s ease 1s
+  p
+    margin-bottom: 0
+  //+sm
+    //background-color: aqua
+
+ul > div
+  visibility: hidden
+  opacity: 0
+  transition: visibility 0s, opacity 0.5s linear
+
+div.open-info
+  visibility: visible
+  opacity: 1
 
 .repo-item
   //+md
