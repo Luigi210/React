@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import $ from 'jquery';
+import rootReducer from "./redux/rootReducer";
 
 $(document).ready(function () {
 
@@ -21,11 +24,17 @@ $(document).ready(function () {
     });
 });
 
+const store = createStore(rootReducer);
+
+const app = (
+    <Provider store={store}>
+        <App/>
+    </Provider>
+)
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    app,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

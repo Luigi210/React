@@ -3,51 +3,48 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../Styles/Profile.sass";
 import PersonalInfo from "../Pages/PersonalInfo";
-// import {Icon} from "@material-ui/core";
 import { Icon } from "semantic-ui-react";
+import {connect} from "react-redux";
 
-function Profile() {
-  const [user, setUser] = useState("");
-  const [profile, setProfile] = useState([]);
-  const [repos, setRepos] = useState([]);
-
+function Profile(props) {
+  // const [user, setUser] = useState("");
+  // const [profile, setProfile] = useState([]);
+  // const [repos, setRepos] = useState([]);
+  console.log(props);
   useEffect(() => {
     try {
       const arrProfiles = localStorage.getItem("profiles");
       const parsedArray = JSON.parse(arrProfiles);
-      console.log(parsedArray);
-      setProfile(parsedArray);
+      props.setProfile(parsedArray);
     } catch (e) {
-      console.log(e);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("profiles", JSON.stringify(profile));
-    console.log(profile);
+    localStorage.setItem("profiles", JSON.stringify(props.profile));
     return () => {
       console.log("123");
     };
-  }, [profile]);
+  }, [props.profile]);
 
   async function getProfile() {
     if (
-      profile.findIndex(
-        (profileItem) => profileItem.login.toLowerCase() === user.toLowerCase()
+      props.profile.findIndex(
+        (profileItem) => profileItem.login.toLowerCase() === props.user.toLowerCase()
       ) !== -1
     ) {
       return;
     }
 
-    const apiUrl = `https://api.github.com/users/${user}`;
+    const apiUrl = `https://api.github.com/users/${props.user}`;
     const res = await axios.get(apiUrl);
 
-    setProfile([...profile, res.data]);
-    setUser("");
+    props.setProfile([...props.profile, res.data]);
+    props.setUser("");
   }
 
   function deleteProfile(index) {
-    setProfile(profile.filter((element, ind) => ind !== index));
+    props.setProfile(props.profile.filter((element, ind) => ind !== index));
   }
 
   return (
@@ -55,10 +52,10 @@ function Profile() {
       <div className={"d-flex justify-content-center"}>
         <input
           className={"search-profile form-control"}
-          value={user}
+          value={props.user}
           type={"text"}
           onChange={(event) => {
-            setUser(event.target.value);
+            props.setUser(event.target.value);
           }}
           placeholder="Enter the name of user"
           onKeyDown={(event) => (event.key === "Enter" ? getProfile() : null)
@@ -69,7 +66,7 @@ function Profile() {
         </button>
       </div>
       <div className="d-flex flex-wrap justify-content-center">
-        {profile.map((item, index) => {
+        {props.profile.map((item, index) => {
           return (
             <React.Fragment key={index}>
               <div className="profile-block">
@@ -90,7 +87,6 @@ function Profile() {
                   className="btn btn-secondary w-100"
                   onClick={() => {
                     return deleteProfile(index);
-                    // console.log("us");
                   }}
                 >
                   Delete
@@ -104,4 +100,20 @@ function Profile() {
   );
 }
 
-export default Profile;
+function mapStateToProps(state){
+  console.log('State', state)
+  return {
+    profile: state.profileReducer.profile,
+    user: state.profileReducer.user
+  }
+}
+
+
+function mapDispatchToProps(dispatch){
+  return {
+    setProfile: (profile) => dispatch({ type: 'SET', value: profile}),
+    setUser: (user) => dispatch({ type: 'CHANGE', value: user})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

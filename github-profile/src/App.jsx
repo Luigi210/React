@@ -5,7 +5,7 @@ import {BrowserRouter, Switch, Route, Link, NavLink, Router} from 'react-router-
 import PersonalInfo from "./Pages/PersonalInfo";
 import Repository from "./Pages/Repository";
 
-function App() {
+function App(props) {
   return (
       <>
       <BrowserRouter>
