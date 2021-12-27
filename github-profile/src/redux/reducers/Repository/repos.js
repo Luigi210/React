@@ -13,7 +13,7 @@ export default function repoReducer(state=repos, action){
         case "CHANGE":
             return {
                 ...state,
-                loading: action.value
+                loading: false
             }
         default:
             return state

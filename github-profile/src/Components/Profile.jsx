@@ -7,15 +7,13 @@ import { Icon } from "semantic-ui-react";
 import {connect} from "react-redux";
 
 function Profile(props) {
-  // const [user, setUser] = useState("");
-  // const [profile, setProfile] = useState([]);
-  // const [repos, setRepos] = useState([]);
   console.log(props);
   useEffect(() => {
     try {
       const arrProfiles = localStorage.getItem("profiles");
       const parsedArray = JSON.parse(arrProfiles);
-      props.setProfile(parsedArray);
+      console.log(parsedArray);
+      props.setProfile([...parsedArray]);
     } catch (e) {
     }
   }, []);
@@ -33,6 +31,7 @@ function Profile(props) {
         (profileItem) => profileItem.login.toLowerCase() === props.user.toLowerCase()
       ) !== -1
     ) {
+      console.log("Return");
       return;
     }
 
@@ -40,6 +39,7 @@ function Profile(props) {
     const res = await axios.get(apiUrl);
 
     props.setProfile([...props.profile, res.data]);
+    console.log(props.profile, res.data);
     props.setUser("");
   }
 
@@ -61,7 +61,7 @@ function Profile(props) {
           onKeyDown={(event) => (event.key === "Enter" ? getProfile() : null)
           }
         />
-        <button className={"btn btn-outline-success"} onClick={getProfile}>
+        <button className={"btn btn-outline-success"} onClick={() => getProfile()}>
           Add
         </button>
       </div>

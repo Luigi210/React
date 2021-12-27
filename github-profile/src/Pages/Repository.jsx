@@ -21,9 +21,10 @@ function Repository(props) {
     if (props.repos.length === 0) {
       props.setRepos([...props.repos, res.data]);
       props.setLoading(false);
+
     }
+
   }
-  console.log(props);
 
   const showInfo = (index) => {
     const node = reference.current[index];
@@ -86,7 +87,7 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
   return {
     setRepos: (repos) => dispatch({type: 'SET', value: repos}),
-    setLoading: (load) => dispatch({type: 'CHANGE', value: load})
+    setLoading: () => dispatch({type: 'CHANGE'})
   }
 }
 

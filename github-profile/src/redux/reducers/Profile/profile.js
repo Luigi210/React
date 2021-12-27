@@ -7,12 +7,12 @@ export default function profileReducer(state=profile, action){
     switch (action.type){
         case "SET":
             return {
-                ...profile,
+                ...state,
                 profile: action.value
             }
         case "CHANGE":
             return {
-                ...profile,
+                ...state,
                 user: action.value
             }
         default:
